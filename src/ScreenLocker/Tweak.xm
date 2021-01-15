@@ -3,6 +3,13 @@
 //
 #import "Activator/libactivator.h"
 
+%hook SBHomeHardwareButton
+-(bool) gestureRecognizerShouldBegin:(id)arg1 {
+  return FALSE;
+}
+%end
+
+
 //
 // ScreenLockerWindow interface
 //
