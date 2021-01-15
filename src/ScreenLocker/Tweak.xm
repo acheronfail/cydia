@@ -9,6 +9,12 @@
 }
 %end
 
+%hook SBControlCenterController
+-(bool) _shouldAllowControlCenterGesture {
+  return FALSE;
+}
+%end
+
 
 //
 // ScreenLockerWindow interface
