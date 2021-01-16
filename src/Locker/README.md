@@ -1,6 +1,6 @@
 # Locker
 
-A tweak which:
+A tweak for Activator which:
 
 * disables the home button
 * disables swipe for Control Center
