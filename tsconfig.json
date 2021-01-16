@@ -1,8 +1,10 @@
 {
   "include": ["lib/**/*.ts"],
   "compilerOptions": {
-    "lib": ["ES2019"],
     "esModuleInterop": true,
+    "lib": ["ES2019"],
+    "noEmit": true,
+    "skipLibCheck": false,
     "strict": true,
     "typeRoots": ["lib/typings"]
   }

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
+    "test": "tsc -p ./tsconfig.json",
     "update": "ts-node ./lib/update-repo.ts"
   },
   "dependencies": {
