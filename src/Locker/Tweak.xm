@@ -20,7 +20,7 @@ static BOOL isEnabled;
   if (self.hidden) {
     NSLog(@"[Locker]: Enabling");
     isEnabled = true;
-    if ([listenerName isEqualToString:@"com.jontelang.screenlocker.invisible"]) {
+    if ([listenerName isEqualToString:@"com.acheronfail.locker.invisible"]) {
       SL.layer.borderWidth = 0;
     } else {
       SL.layer.borderWidth = 4;
@@ -104,8 +104,8 @@ static void createListener() {
   SL.userInteractionEnabled = YES;
   SL.exclusiveTouch = YES;
 
-  [[LAActivator sharedInstance] registerListener:SL forName:@"com.jontelang.screenlocker"];
-  [[LAActivator sharedInstance] registerListener:SL forName:@"com.jontelang.screenlocker.invisible"];
+  [[LAActivator sharedInstance] registerListener:SL forName:@"com.acheronfail.locker"];
+  [[LAActivator sharedInstance] registerListener:SL forName:@"com.acheronfail.locker.invisible"];
 }
 
 //
