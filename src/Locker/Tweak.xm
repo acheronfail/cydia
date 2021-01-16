@@ -39,54 +39,30 @@ static BOOL isEnabled;
 
 // disables home button
 %hook SBHomeHardwareButton
--(BOOL) gestureRecognizerShouldBegin:(id)arg1 {
-  if (isEnabled) {
-    return false;
-  }
-
-  return %orig(arg1);
-}
+-(BOOL) gestureRecognizerShouldBegin:(id)arg1 { return isEnabled ? false : %orig(arg1); }
 %end
 
 // disables gesture to show control center
 %hook SBControlCenterController
--(BOOL) _shouldAllowControlCenterGesture {
-  if (isEnabled) {
-    return false;
-  }
-
-  return %orig;
-}
+-(BOOL) _shouldAllowControlCenterGesture { return isEnabled ? false : %orig; }
 %end
 
 // cancels all "swipe up for app switcher" events
 %hook SBGestureSwitcherModifierEvent
--(BOOL) isCanceled {
-  if (isEnabled) {
-    return true;
-  }
-
-  return %orig;
-}
--(BOOL) isGestureEvent {
-  if (isEnabled) {
-    return false;
-  }
-
-  return %orig;
-}
+-(BOOL) isCanceled { return isEnabled ? true : %orig; }
+-(BOOL) isGestureEvent { return isEnabled ? false : %orig; }
 %end
 
 // seems to disable all swipe-in gestures; does seem to cause a crash when swiping
 // up on the home screen (the apps) however. Doesn't do so within apps, so not a huge deal
 %hook SBSystemGestureManager
--(BOOL) areSystemGesturesDisabledForAccessibility {
-  if (isEnabled) {
-    return true;
-  }
+-(BOOL) areSystemGesturesDisabledForAccessibility { return isEnabled ? true : %orig; }
+%end
 
-  return %orig;
-}
+// disable changing the volume
+%hook VolumeControl
+  -(void)increaseVolume { if (!isEnabled) %orig; }
+  -(void)decreaseVolume { if (!isEnabled) %orig; }
 %end
 
 // creates the Activator listener object
