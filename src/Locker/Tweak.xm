@@ -60,9 +60,9 @@ static BOOL isEnabled;
 %end
 
 // disable changing the volume
-%hook VolumeControl
-  -(void)increaseVolume { if (!isEnabled) %orig; }
-  -(void)decreaseVolume { if (!isEnabled) %orig; }
+%hook SBVolumeControl
+-(void) increaseVolume { if (!isEnabled) %orig; }
+-(void) decreaseVolume { if (!isEnabled) %orig; }
 %end
 
 // creates the Activator listener object
