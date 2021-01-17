@@ -1,11 +1,12 @@
-import fs from 'fs-extra';
-import path from 'path';
-import tar from 'tar-fs';
-import gunzip from 'gunzip-maybe';
-import tempy from 'tempy';
 import execa from 'execa';
-import { promisify } from 'util';
+import fs from 'fs-extra';
+import gunzip from 'gunzip-maybe';
+import path from 'path';
 import stream from 'stream';
+import tar from 'tar-fs';
+import tempy from 'tempy';
+import { promisify } from 'util';
+
 import { fileChecksums } from './checksum';
 import { REPO_ROOT } from './constants';
 import { ControlKey } from './types';

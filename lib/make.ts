@@ -1,8 +1,9 @@
-import { runAsyncMain } from "./util";
+import execa from 'execa';
 import fs from 'fs-extra';
 import path from 'path';
-import { SRC_DIR } from "./constants";
-import execa from 'execa';
+
+import { SRC_DIR } from './constants';
+import { runAsyncMain } from './util';
 
 async function main() {
   for (const entry of await fs.readdir(SRC_DIR)) {

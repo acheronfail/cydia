@@ -1,5 +1,6 @@
-import fs from 'fs-extra';
 import crypto from 'crypto';
+import fs from 'fs-extra';
+
 import { Checksums } from './types';
 
 export function fileChecksums(filePath: string): Promise<Checksums> {

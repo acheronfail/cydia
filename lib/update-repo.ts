@@ -1,7 +1,8 @@
-import { scanPackages } from './scan-packages';
 import { Bzip2 } from 'compressjs';
 import fs from 'fs-extra';
+
 import { DEBS_DIR, REPO_PKGS } from './constants';
+import { scanPackages } from './scan-packages';
 import { runAsyncMain } from './util';
 
 async function main() {
