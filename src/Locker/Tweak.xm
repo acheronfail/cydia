@@ -26,12 +26,12 @@ static BOOL isEnabled;
       SL.layer.borderWidth = 4;
     }
     [self makeKeyAndVisible];
-    [event setHandled:YES];
+    [event setHandled:true];
   } else {
     NSLog(@"[Locker]: Disabling");
     isEnabled = false;
-    [self setHidden:YES];
-    [event setHandled:YES];
+    [self setHidden:true];
+    [event setHandled:true];
   }
 }
 
@@ -74,11 +74,12 @@ static void createListener() {
   }
 
   // We need an alpha value here otherwise touches fall through
-  [SL setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.0001]];
+  [SL setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.05]];
   [SL setWindowLevel:UIWindowLevelStatusBar + 250];
   SL.layer.borderColor = [[UIColor redColor] colorWithAlphaComponent:0.25f].CGColor;
-  SL.userInteractionEnabled = YES;
-  SL.exclusiveTouch = YES;
+  SL.userInteractionEnabled = true;
+  SL.exclusiveTouch = true;
+  SL.opaque = true;
 
   [[LAActivator sharedInstance] registerListener:SL forName:@"com.acheronfail.locker"];
   [[LAActivator sharedInstance] registerListener:SL forName:@"com.acheronfail.locker.invisible"];
