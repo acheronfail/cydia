@@ -2,6 +2,7 @@ import { scanPackages } from './scan-packages';
 import { Bzip2 } from 'compressjs';
 import fs from 'fs-extra';
 import { DEBS_DIR, REPO_PKGS } from './constants';
+import { runAsyncMain } from './util';
 
 async function main() {
   // create Packages.bz2
@@ -11,8 +12,5 @@ async function main() {
 }
 
 if (require.main === module) {
-  main().then(undefined, (err) => {
-    console.error(err);
-    process.exit(1);
-  });
+  runAsyncMain(main);
 }

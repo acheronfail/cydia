@@ -5,7 +5,9 @@
   "license": "MIT",
   "scripts": {
     "test": "tsc -p ./tsconfig.json",
-    "update": "node node_modules/.bin/ts-node ./lib/update-repo.ts"
+    "ts-node": "node node_modules/.bin/ts-node",
+    "make": "yarn ts-node ./lib/make.ts",
+    "update": "yarn ts-node ./lib/update-repo.ts"
   },
   "dependencies": {
     "change-case": "^4.1.2",
