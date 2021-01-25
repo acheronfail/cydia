@@ -8,6 +8,10 @@ Directory structure:
 * `Release`: Repository release file: https://wiki.debian.org/DebianRepository/Format#A.22Release.22_files
 * `Packages.bz2`: https://wiki.debian.org/DebianRepository/Format#A.22Packages.22_Indices
 
+## Tips
+
+Common functions/commands are listed in the `justfile`. See [just] for how to use this.
+
 ## `src`
 
 Mostly tweaks, some useful references:
@@ -18,6 +22,7 @@ Mostly tweaks, some useful references:
 * http://developer.limneos.net/
 * https://github.com/theos/theos
 * https://stackoverflow.com/a/11553722/5552584
+* https://www.theiphonewiki.com/
 
 ## `lib`
 
@@ -38,3 +43,5 @@ yarn update
 * https://github.com/hbang/libcephei
 * https://github.com/rpetrich/libactivator
 * https://github.com/LacertosusRepo/Open-Source-Tweaks
+
+[just]: https://github.com/casey/just
