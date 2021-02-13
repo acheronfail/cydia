@@ -1,7 +1,7 @@
 Package: com.acheronfail.locker
 Name: Locker
 Depends: mobilesubstrate, libactivator, ws.hbang.common
-Version: 1.1
+Version: 1.2
 Architecture: iphoneos-arm
 Description: Locks the device
 Maintainer: acheronfail <acheronfail@gmail.com>

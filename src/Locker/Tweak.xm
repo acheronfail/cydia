@@ -6,7 +6,7 @@
 @end
 
 // Global instance of the overlay window
-static OverlayWindow *SL;
+static OverlayWindow *_lockerWindow;
 // Whether or not the tweak is enabled
 static BOOL isEnabled;
 
@@ -21,9 +21,9 @@ static BOOL isEnabled;
     NSLog(@"[Locker]: Enabling");
     isEnabled = true;
     if ([listenerName isEqualToString:@"com.acheronfail.locker.invisible"]) {
-      SL.layer.borderWidth = 0;
+      _lockerWindow.layer.borderWidth = 0;
     } else {
-      SL.layer.borderWidth = 4;
+      _lockerWindow.layer.borderWidth = 4;
     }
     [self makeKeyAndVisible];
     [event setHandled:true];
@@ -68,21 +68,21 @@ static BOOL isEnabled;
 // creates the Activator listener object
 static void createListener() {
   if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0f) {
-    SL = [[OverlayWindow alloc] init];
+    _lockerWindow = [[OverlayWindow alloc] init];
   } else {
-    SL = [[OverlayWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    _lockerWindow = [[OverlayWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   }
 
   // We need an alpha value here otherwise touches fall through
-  [SL setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.05]];
-  [SL setWindowLevel:UIWindowLevelStatusBar + 250];
-  SL.layer.borderColor = [[UIColor redColor] colorWithAlphaComponent:0.25f].CGColor;
-  SL.userInteractionEnabled = true;
-  SL.exclusiveTouch = true;
-  SL.opaque = true;
+  [_lockerWindow setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.05]];
+  [_lockerWindow setWindowLevel:UIWindowLevelStatusBar + 250];
+  _lockerWindow.layer.borderColor = [[UIColor redColor] colorWithAlphaComponent:0.25f].CGColor;
+  _lockerWindow.userInteractionEnabled = true;
+  _lockerWindow.exclusiveTouch = true;
+  _lockerWindow.opaque = true;
 
-  [[LAActivator sharedInstance] registerListener:SL forName:@"com.acheronfail.locker"];
-  [[LAActivator sharedInstance] registerListener:SL forName:@"com.acheronfail.locker.invisible"];
+  [[LAActivator sharedInstance] registerListener:_lockerWindow forName:@"com.acheronfail.locker"];
+  [[LAActivator sharedInstance] registerListener:_lockerWindow forName:@"com.acheronfail.locker.invisible"];
 }
 
 //
