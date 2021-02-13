@@ -9,6 +9,7 @@ static OverlayWindow *_overlayWindow;
 
 // OverlayWindow implementation
 @implementation OverlayWindow
+- (UIView *) hitTest:(CGPoint)point withEvent:(UIEvent *)event { return NULL; }
 @end
 
 // initialises and configures the overlay window
@@ -20,14 +21,20 @@ static void initOverlayWindow() {
   }
 
   // We need an alpha value here otherwise touches fall through
-  [_overlayWindow setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.0]];
+  [_overlayWindow setBackgroundColor:[UIColor clearColor]];
   [_overlayWindow setWindowLevel:UIWindowLevelStatusBar + 250];
-  _overlayWindow.userInteractionEnabled = true;
+  _overlayWindow.userInteractionEnabled = false;
   _overlayWindow.opaque = true;
 
-  [_overlayWindow.layer setCornerRadius:20.0f];
-  [_overlayWindow.layer setMasksToBounds:YES];
-  _overlayWindow.layer.borderColor = [[UIColor blackColor] colorWithAlphaComponent:1.0f].CGColor;
+  CGFloat cornerRadius = 20.0f;
+  CGFloat borderWidth = cornerRadius / 2.0f;
+
+  [_overlayWindow.layer setCornerRadius:cornerRadius];
+  _overlayWindow.frame = CGRectInset(_overlayWindow.frame, -borderWidth, -borderWidth);
+  _overlayWindow.layer.borderColor = [UIColor blackColor].CGColor;
+  _overlayWindow.layer.borderWidth = borderWidth;
+
+  [_overlayWindow makeKeyAndVisible];
 }
 
 //

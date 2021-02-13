@@ -1,7 +1,7 @@
 Package: com.acheronfail.roundcorners
 Name: RoundCorners
 Depends: mobilesubstrate
-Version: 0.1
+Version: 1.0
 Architecture: iphoneos-arm
 Description: Rounds the four corners of the display
 Maintainer: acheronfail <acheronfail@gmail.com>
