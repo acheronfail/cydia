@@ -20,7 +20,6 @@ static void initOverlayWindow() {
     _overlayWindow = [[OverlayWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   }
 
-  // We need an alpha value here otherwise touches fall through
   [_overlayWindow setBackgroundColor:[UIColor clearColor]];
   [_overlayWindow setWindowLevel:UIWindowLevelStatusBar + 250];
   _overlayWindow.userInteractionEnabled = false;
