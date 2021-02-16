@@ -43,5 +43,6 @@ yarn update
 * https://github.com/hbang/libcephei
 * https://github.com/rpetrich/libactivator
 * https://github.com/LacertosusRepo/Open-Source-Tweaks
+* https://github.com/andrewwiik/Tweaks
 
 [just]: https://github.com/casey/just
