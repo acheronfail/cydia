@@ -44,5 +44,10 @@ yarn update
 * https://github.com/rpetrich/libactivator
 * https://github.com/LacertosusRepo/Open-Source-Tweaks
 * https://github.com/andrewwiik/Tweaks
+* https://github.com/NepetaDev/UnSub
+* https://github.com/NepetaDev/BegoneCIA
+* https://github.com/NepetaDev/Copypasta
+* https://github.com/NepetaDev/IconState
+* https://github.com/NepetaDev/Relocate
 
 [just]: https://github.com/casey/just
