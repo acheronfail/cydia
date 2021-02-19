@@ -42,6 +42,8 @@ yarn update
 
 * https://github.com/hbang/libcephei
 * https://github.com/rpetrich/libactivator
+* https://github.com/angelxwind/simject
+* https://github.com/PoomSmart/preferenceloader-sim
 * https://github.com/LacertosusRepo/Open-Source-Tweaks
 * https://github.com/andrewwiik/Tweaks
 * https://github.com/NepetaDev/UnSub
